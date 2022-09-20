@@ -10,9 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "vendedor")
-public class Vendedor implements Serializable {
-	private static final long serialVersionUID = -4115351043435539485L;
+@Table(name = "categoria")
+public class Categoria implements Serializable {
+	private static final long serialVersionUID = -9096195651449641929L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +21,14 @@ public class Vendedor implements Serializable {
 	@Column(name = "nome", length = 90, nullable = false)
 	private String nome;
 	
-	public Vendedor() {		
+	public Categoria() {		
 	}
 
-	public Vendedor(Long id, String nome) {
+	public Categoria(Long id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -47,6 +47,6 @@ public class Vendedor implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Vendedor [id=" + id + ", nome=" + nome + "]";
+		return "Categoria [id=" + id + ", nome=" + nome + "]";
 	}
 }

@@ -1,33 +1,36 @@
 package Teste.com.teste.Model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table
-public class Marca {
-	
+@Table(name = "fornecedor")
+public class Fornecedor implements Serializable {
+	private static final long serialVersionUID = 1671449815596613141L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "nome", length = 90, nullable = false)
 	private String nome;
 	
-	@OneToMany(mappedBy = "marca")
-	private List<Modelo> modelos = new ArrayList<>();
+	@Column(name = "cnpj", length = 20, nullable = false)
+	private String cnpj;
 	
-	public Marca() {
+	public Fornecedor() {		
 	}
 
-	public Marca(Long id, String nome) {
+	public Fornecedor(Long id, String nome, String cnpj) {
 		this.id = id;
 		this.nome = nome;
+		this.cnpj = cnpj;
 	}
 
 	public Long getId() {
@@ -46,7 +49,11 @@ public class Marca {
 		this.nome = nome;
 	}
 
-	public List<Modelo> getModelos() {
-		return modelos;
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 }
