@@ -1,13 +1,18 @@
 package Teste.com.teste.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "fornecedor")
@@ -23,6 +28,10 @@ public class Fornecedor implements Serializable {
 	
 	@Column(name = "cnpj", length = 20, nullable = false)
 	private String cnpj;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "fornecedor")
+	private List<Produto> produtos = new ArrayList<>();
 	
 	public Fornecedor() {		
 	}
@@ -55,6 +64,10 @@ public class Fornecedor implements Serializable {
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
+	}
+	
+	public List<Produto> getProdutos() {
+		return produtos;
 	}
 
 	@Override
