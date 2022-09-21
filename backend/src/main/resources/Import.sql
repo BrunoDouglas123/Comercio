@@ -1,7 +1,7 @@
-INSERT INTO cliente(nome, telefone, email)VALUES('Felipe','000000000','bla240@gmail.com');
-INSERT INTO cliente(nome, telefone, email)VALUES('Lucas','000000000','bla240@gmail.com');
-INSERT INTO cliente(nome, telefone, email)VALUES('Bruno','000000000','bla240@gmail.com');
-INSERT INTO cliente(nome, telefone, email)VALUES('Samantha','000000000','bla240@gmail.com');
+INSERT INTO cliente(nome,telefone,email)VALUES('Felipe','000000000','bla240@gmail.com');
+INSERT INTO cliente(nome,telefone,email)VALUES('Lucas','000000000','bla240@gmail.com');
+INSERT INTO cliente(nome,telefone,email)VALUES('Bruno','000000000','bla240@gmail.com');
+INSERT INTO cliente(nome,telefone,email)VALUES('Samantha','000000000','bla240@gmail.com');
 
 INSERT INTO vendedor(nome)VALUES('Bruno');
 INSERT INTO vendedor(nome)VALUES('Karol');

@@ -1,12 +1,15 @@
 package Teste.com.teste.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +23,9 @@ public class Pagamento implements Serializable {
 	
 	@Column(name = "forma_pagamento", length = 90, nullable = false)
 	private String forma_pagamento;
+	
+	@OneToMany(mappedBy = "pagamento")
+	private List<Venda> vendas = new ArrayList<>();
 	
 	public Pagamento() {		
 	}
@@ -43,6 +49,10 @@ public class Pagamento implements Serializable {
 
 	public void setForma_pagamento(String forma_pagamento) {
 		this.forma_pagamento = forma_pagamento;
+	}
+	
+	public List<Venda> getVendas() {
+		return vendas;
 	}
 
 	@Override
